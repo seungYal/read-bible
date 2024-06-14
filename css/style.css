@@ -18,13 +18,14 @@ body {
 
 header {
   width: 100%;
+  height: 80px;
 }
 
 .hLeft {
-  width: 200px;
-  height: 120px;
+  width: 100px;
+  height: 60px;
   float: left;
-  margin: 25px 0 0 25px;
+  margin: 15px 0 0 15px;
 }
 
 .hRight {
@@ -34,19 +35,17 @@ header {
 
 main {
   clear: both;
-  width: 95%;
-  height: 80vh;
-  margin: 0 auto;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .todayBlock {
-  width: 95%;
-  height: 100px;
+  width: 96%;
   margin: 0 auto;
-  position: relative;
-  top: 200px;
-  left: 50%;
-  margin-left: -45.5%;
+  height: 100px;
 }
 
 .todayBlock > p:first-child {
