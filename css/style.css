@@ -30,7 +30,7 @@ header {
 }
 
 main {
-  height: 80vh;
+  height: 75vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,4 +81,76 @@ footer {
   font-size: 40px;
   color: #5B5B5B;
   cursor : pointer;
+}
+
+.menuPop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.3);
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.popBody {
+  width: 82%;
+  height: 60%;
+  background-color: #E4E4E4;
+  border-radius: 15px;
+  position: relative;
+}
+
+.quit {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  text-align: center;
+  font-size: 30px;
+  color: #5B5B5B;
+  cursor: pointer;
+}
+
+.popMain {
+  height: 300px;
+  margin-top: 50px;
+}
+.popMain > p {
+  font-size: 18px;
+  color: #333;
+  padding: 20px 20px 5px 20px;
+}
+
+.links {
+  margin-top: 200px;
+  display: flex;
+  padding-left: 20px;
+}
+
+.links li {
+  list-style: none;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.links li:first-child {
+  background: url(../images/github.png) no-repeat center;
+  background-size: cover;
+}
+
+.links li:nth-child(2) {
+  background: url(../images/velog.png) no-repeat center;
+  background-size: cover;
+}
+
+.links li:last-child {
+  background: url(../images/brunch.png) no-repeat center;
+  background-size: cover;
 }

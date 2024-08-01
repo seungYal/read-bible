@@ -657,3 +657,16 @@ let todayContents = table[props].contents;
 // document.getElementById('printContents').innerHTML = todayContents;
 
 document.querySelector('.contents').innerHTML = todayContents;
+
+//팝업
+
+let menu = document.querySelector('.menu');
+let menuPop = document.querySelector('.menuPop');
+let quit = document.querySelector('.quit');
+menu.addEventListener('click', function(){
+  menuPop.style.display = 'flex';
+} )
+
+quit.addEventListener('click', function(){
+  menuPop.style.display = 'none';
+} )
