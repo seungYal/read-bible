@@ -7,15 +7,19 @@ let day = today.getDay();
 let dayList = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
 
 //오늘 날짜
-document.getElementById('printToday1').innerHTML = year + '년';
-document.getElementById('printToday2').innerHTML = month + '월 ' + date + '일';
-document.getElementById('printToday3').innerHTML = dayList[day];
+// document.getElementById('printToday1').innerHTML = year + '년';
+// document.getElementById('printToday2').innerHTML = month + '월 ' + date + '일';
+// document.getElementById('printToday3').innerHTML = dayList[day];
+
+//요일
+document.querySelector('.day').innerHTML = dayList[day];
+
 
 //일차 계산
 let diff = Math.abs(today.getTime() - oldDate.getTime());
 diff = Math.ceil(diff / (1000 * 60 * 60 * 24)); //2월 5일의 diff값은 0입니다.
 
-document.getElementById('printDiff').innerHTML = '오늘은 ' + Number(diff + 1) + '일차입니다. (2월 5일 기준)';
+// document.getElementById('printDiff').innerHTML = '오늘은 ' + Number(diff + 1) + '일차입니다. (2월 5일 기준)';
 
 let table = {
   day121: {
@@ -646,7 +650,10 @@ let table = {
     contents: '1독감사소감문',
   },
 };
+
 let props = 'day' + Number(diff + 1);
 let todayContents = table[props].contents;
 
-document.getElementById('printContents').innerHTML = todayContents;
+// document.getElementById('printContents').innerHTML = todayContents;
+
+document.querySelector('.contents').innerHTML = todayContents;
