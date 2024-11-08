@@ -658,15 +658,42 @@ let todayContents = table[props].contents;
 
 document.querySelector('.contents').innerHTML = todayContents;
 
-//팝업
+// JSON 데이터를 불러오고 처리하는 함수
+async function loadData() {
+  try {
+    const [versesResponse, dataResponse] = await Promise.all([
+      fetch('js/verses.json')
+    ]);
 
-let menu = document.querySelector('.menu');
-let menuPop = document.querySelector('.menuPop');
-let quit = document.querySelector('.quit');
-menu.addEventListener('click', function(){
-  menuPop.style.display = 'flex';
-} )
+    if (!versesResponse.ok) {
+      throw new Error('데이터 로드 실패');
+    }
 
-quit.addEventListener('click', function(){
-  menuPop.style.display = 'none';
-} )
+    const versesData = await versesResponse.json();
+
+    displayVerseData(versesData);
+  } catch (error) {
+    console.error('데이터 로드 실패:', error);
+  }
+}
+
+// 오늘의 날짜와 구절 데이터 표시 함수
+function displayVerseData(data) {
+  const today = new Date();
+  const startDate = new Date(today.getFullYear(), 9, 14); // 10월 14일
+  const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+  const weekIndex = Math.floor(diffDays / 7);
+
+  const weekData = data.verses.find(verse => verse.weeks === weekIndex + 1);
+
+  document.getElementsByClassName('verse')[0].textContent = weekData
+    ? `${weekData.text}`
+    : "이번 주에 해당하는 구절이 없습니다.";
+
+  document.getElementsByClassName('chap')[0].textContent = weekData
+    ? `${weekData.verse}`
+    : "이번 주에 해당하는 장이 없습니다.";
+}
+
+// 페이지가 로드되면 데이터 표시
+window.onload = loadData;
