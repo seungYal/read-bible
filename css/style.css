@@ -91,9 +91,9 @@ main {
 
 .verse {
   height: 200px;
-  font-size: 20px;
+  font-size: 16px;
   color: #333333;
-  padding: 45px 50px 50px 50px;
+  padding: 25px 50px 50px 50px;
   line-height: 25px;
   text-align: left;
 }
