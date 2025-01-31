@@ -93,16 +93,16 @@ main, .main2 {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  background-color: #aff388;
-  font-size: 25px;
+  background-color: #d9faae;
+  font-size: 23px;
   color: #5B5B5B;
 }
 
 .verse {
   height: 200px;
-  font-size: 18px;
+  font-size: 15px;
   color: #333333;
-  padding: 25px 50px 50px 50px;
+  padding: 18px 50px 50px 50px;
   line-height: 25px;
   text-align: left;
 }
