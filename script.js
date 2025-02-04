@@ -22,12 +22,12 @@ fetch('bibleSchedule.json')
 
     // 주간 성경 구절 가져오기
     const getWeeklySchedule = (schedule, weekIndex) => 
-      schedule.slice((weekIndex - 1) * 6, weekIndex * 6);
+      schedule.slice((weekIndex - 1) * 5, weekIndex * 5);
 
     // HTML 업데이트
     // document.getElementById("todayWord").innerHTML = findVerseByDate(todayStr);
 
-    const weekSchedule = getWeeklySchedule(bibleSchedule, week - 2);
+    const weekSchedule = getWeeklySchedule(bibleSchedule, week - 5);
     weekSchedule.forEach((entry, index) => {
       const element = document.getElementById(`weekWord${index + 1}`);
       if (element) element.innerHTML += entry.verse;
@@ -35,7 +35,7 @@ fetch('bibleSchedule.json')
   })
   .catch(error => console.error('Error loading schedule:', error));
 
-  if (realDay > 0 && realDay < 7) { // 일요일(0) 제외
+  if (realDay > 0 && realDay < 6) { // 일요일(0),토요일(6) 제외
     const targetId = `weekWord${realDay}`;
     const targetElement = document.getElementById(targetId);
     
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const verseData = data.verses.find(v => v.weeks === weekNumber);
 
       if (verseData) {
-          document.getElementById("chap").textContent = verseData.verse; // 장 표시
+          document.getElementById("chap").textContent += verseData.verse; // 장 표시
           document.getElementById("verse").textContent = verseData.text; // 구절 표시
       } else {
           document.getElementById("chap").textContent = "해당 주차의 데이터가 없습니다.";
