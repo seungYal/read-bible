@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const data = await response.json();
 
       // 현재 주차 구하기 (예: 1월 1일 기준 주차 계산)
-      const startDate = new Date(2025, 0, 1); // 기준 날짜 (2024년 1월 1일)
+      const startDate = new Date(2025, 0, 6); // 기준 날짜 (2025년 1월 6일 -> 1주)
       const today = new Date(); // 오늘 날짜
       const weekNumber = Math.ceil((today - startDate) / (7 * 24 * 60 * 60 * 1000)); // 주차 계산
 
@@ -59,8 +59,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const verseData = data.verses.find(v => v.weeks === weekNumber);
 
       if (verseData) {
-          document.getElementById("chap").textContent += verseData.verse; // 장 표시
-          document.getElementById("verse").textContent = verseData.text; // 구절 표시
+          document.getElementById("verse").textContent += verseData.verse + ' - ' + verseData.text;; // 이번주말씀
       } else {
           document.getElementById("chap").textContent = "해당 주차의 데이터가 없습니다.";
           document.getElementById("verse").textContent = "";
